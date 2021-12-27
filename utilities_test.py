@@ -10,7 +10,7 @@ def test_uuid():
 # Sample of a failing test
 def test_failing():
     uuid = utilities.create_uuid()
-    if os.environ["environment"] is in ["Development", "Production"]:
+    if os.environ["environment"] in ["Development", "Production"]:
         assert os.environ["KENSU_TOKEN"] is None
     else:
         assert os.environ["KENSU_TOKEN"] is ''
