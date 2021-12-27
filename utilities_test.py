@@ -9,4 +9,4 @@ def test_uuid():
     if os.environ["environment"] in ["Development", "Production"]:
         assert os.environ["KENSU_TOKEN"] is None
     else:
-        assert os.environ["KENSU_TOKEN"] is ''
+        assert os.environ["KENSU_TOKEN"] == ''
