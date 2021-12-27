@@ -48,9 +48,7 @@ jobs:
       KENSU_TOKEN: "${{ secrets.KENSU_TOKEN }}"
     steps:
       - name: Dump Environment
-        env:
-          ENV: ${{ toJSON(environment) }}
-        run: echo "$ENV"
+        run: echo "${{ environment.name }}"
       - name: Deploy
         run: echo I am deploying Dev! 
       - uses: actions/checkout@v2
