@@ -7,7 +7,7 @@ def test_uuid():
     assert len(uuid) == 32
     assert uuid.find('-') == -1
 
-    if os.environ["ENV"] in ["Development", "Production"]:
+    if "ENV" in os.environ:
         assert os.environ["KENSU_TOKEN"] is None
     else:
         assert os.environ["KENSU_TOKEN"] == ''
