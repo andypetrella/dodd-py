@@ -13,6 +13,8 @@ jobs:
   Build:
 
     runs-on: ubuntu-latest
+    env:
+      KENSU_TOKEN: "${{ secrets.KENSU_TOKEN }}"
 
     steps:
     - uses: actions/checkout@v2
@@ -33,7 +35,7 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        pytest
+        pytest --exitfirst --verbose --failed-first
 
   DeployDevelopment:
     name: Deploy to Development 
@@ -42,6 +44,8 @@ jobs:
     runs-on: ubuntu-latest
     environment: 
       name: Development
+    env:
+      KENSU_TOKEN: "${{ secrets.KENSU_TOKEN }}"
     steps:
       - name: Deploy
         run: echo I am deploying Dev! 
@@ -57,7 +61,7 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Test with pytest
         run: |
-          pytest
+          pytest --exitfirst --verbose --failed-first
 
   DeployProd:
     name: Deploy to Production 
@@ -65,6 +69,8 @@ jobs:
     runs-on: ubuntu-latest
     environment: 
       name: Production
+    env:
+      KENSU_TOKEN: "${{ secrets.KENSU_TOKEN }}"
     steps:
       - name: Deploy
         run: echo I am deploying Prod! 
@@ -80,4 +86,4 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Test with pytest
         run: |
-          pytest
+          pytest --exitfirst --verbose --failed-first
