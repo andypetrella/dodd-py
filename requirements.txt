@@ -1,4 +1,4 @@
-kensu==1.7.0.0.dev209
+kensu[pandas]==1.7.0.0.dev209
 pandas
 
 pytest
