@@ -1,2 +1,5 @@
+kensu==1.7.0.0-exp
+pandas
+
 pytest
 pytest-github-actions-annotate-failures
