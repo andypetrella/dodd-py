@@ -1,4 +1,6 @@
 kensu[pandas]==1.7.0.0.dev209
+urllib3
+requests
 pandas
 
 pytest
