@@ -32,7 +32,7 @@ def dodd(timestamp, **kwargs):
             from string import Template
             s = Template(r.read())
             w.write(s.substitute(url=url or '', token=token or ''
-                                , sdk_url=sdk_url, sdk_pat=sdk_pat
+                                , sdk_url=sdk_url or '', sdk_pat=sdk_pat or ''
                                 , environment=environment
                                 , timestamp=timestamp or ts()
                                 , reporter=reporter
