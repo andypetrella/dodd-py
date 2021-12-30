@@ -128,5 +128,8 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+# Mac OSX
+.DS_Store
+
 # Exclude generated conf.ini
 src/conf.ini
