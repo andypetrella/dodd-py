@@ -12,6 +12,10 @@ def dodd(timestamp, **kwargs):
     token = os.environ.get("KENSU_TOKEN", None)
     sdk_url = os.environ.get("KENSU_SDK_URL", None)
     sdk_pat = os.environ.get("KENSU_SDK_PAT", None)
+    if sdk_url is not None and sdk_pat is not None:
+        sdk = f'sdk_url={sdk_url}\nPAT={sdk_pat}'
+    else:
+        sdk = ''
 
     if "CONF_FILE" not in os.environ:
         logging.warning("Forcing CONF_FILE var env to 'conf.ini'")
@@ -32,7 +36,7 @@ def dodd(timestamp, **kwargs):
             from string import Template
             s = Template(r.read())
             w.write(s.substitute(url=url or '', token=token or ''
-                                , sdk_url=sdk_url or '', sdk_pat=sdk_pat or ''
+                                , sdk=sdk
                                 , environment=environment
                                 , timestamp=timestamp or ts()
                                 , reporter=reporter
