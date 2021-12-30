@@ -5,7 +5,7 @@ import datetime
 import logging
 
 from kensu.utils.kensu_provider import KensuProvider
-from kensu.utils.reporters import LoggingReporter
+from kensu.utils.reporters import ApiReporter, LoggingReporter
 
 def dodd(url, token, timestamp, reporter=LoggingReporter, file_name="dodd.log", **kwargs):
     if "CONF_FILE" not in os.environ:
@@ -14,6 +14,7 @@ def dodd(url, token, timestamp, reporter=LoggingReporter, file_name="dodd.log", 
 
     if "ENV" in os.environ:
         environment = os.environ["ENV"]
+        reporter = ApiReporter
     else:
         environment = "Local"
 

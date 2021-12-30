@@ -14,11 +14,24 @@ def set_up():
     token = os.environ.get("KENSU_TOKEN", None)
     client = dodd(url=url, token=token, timestamp=ts())
 
-# TODO => have a file on S3 with null values for "marital"
 def copy(source_directory, target_directory):
+    copy_v1(source_directory, target_directory)
+
+def copy_v1(source_directory, target_directory):
     set_up()
 
     marital = ["divorced", "single", "married", "unknown"]
+    customers_info = pd.read_csv(source_directory + '/customers.csv')
+
+    check_nrows_consistency()
+    referenced = customers_info[customers_info["marital"].isin(marital)]
+
+    referenced.to_json(target_directory + '/customers.json')
+
+def copy_v2(source_directory, target_directory):
+    set_up()
+    import numpy
+    marital = ["divorced", "single", "married", "unknown", numpy.nan]
     customers_info = pd.read_csv(source_directory + '/customers.csv')
 
     check_nrows_consistency()
