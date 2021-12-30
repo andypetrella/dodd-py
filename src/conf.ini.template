@@ -3,7 +3,7 @@ api_url=$url
 api_token=$token
 
 project_names=GitHub Actions
-environment=Production
+environment=$environment
 process_name=Build Data - CV
 
 logical_naming=File
