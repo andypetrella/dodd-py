@@ -14,6 +14,7 @@ jobs:
 
     runs-on: ubuntu-latest
     env:
+      KENSU_URL: "${{ secrets.KENSU_URL }}"
       KENSU_TOKEN: "${{ secrets.KENSU_TOKEN }}"
 
     steps:
@@ -47,6 +48,7 @@ jobs:
     env:
       # ENV duplicates the environment.name... as it is not clear how to get the environment from a context...
       ENV: "Staging" 
+      KENSU_URL: "${{ secrets.KENSU_URL }}"
       KENSU_TOKEN: "${{ secrets.KENSU_TOKEN }}"
     steps:
       - name: Deploy
@@ -74,6 +76,7 @@ jobs:
     env:
       # ENV duplicates the environment.name... as it is not clear how to get the environment from a context...
       ENV: "Production" 
+      KENSU_URL: "${{ secrets.KENSU_URL }}"
       KENSU_TOKEN: "${{ secrets.KENSU_TOKEN }}"
     steps:
       - name: Deploy
