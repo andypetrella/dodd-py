@@ -7,7 +7,7 @@ import os
 from src.build_data import pipeline, copy
 from kensu.utils.exceptions import NrowsConsistencyError
 
-class MyTest(unittest.TestCase):
+class TestBuildData(unittest.TestCase):
     log_format = '%(asctime)s %(levelname)s %(filename)s:%(lineno)d %(message)s'
     logging.basicConfig(stream=sys.stdout, level=logging.INFO, format=log_format)
 
@@ -22,7 +22,7 @@ class MyTest(unittest.TestCase):
         else:
             self.source_directory = "./data/input"
 
-        os.mkdir(self.target_directory)
+        os.mkdir(self.target_directory)        
 
     def tearDown(self):
         try:

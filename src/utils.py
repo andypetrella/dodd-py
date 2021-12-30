@@ -7,26 +7,36 @@ import logging
 from kensu.utils.kensu_provider import KensuProvider
 from kensu.utils.reporters import ApiReporter, LoggingReporter
 
-def dodd(url, token, timestamp, reporter=LoggingReporter, file_name="dodd.log", **kwargs):
+def dodd(timestamp, **kwargs):
+    url = os.environ.get("KENSU_URL", None)
+    token = os.environ.get("KENSU_TOKEN", None)
+    sdk_url = os.environ.get("KENSU_SDK_URL", None)
+    sdk_pat = os.environ.get("KENSU_SDK_PAT", None)
+
     if "CONF_FILE" not in os.environ:
         logging.warning("Forcing CONF_FILE var env to 'conf.ini'")
         os.environ["CONF_FILE"] = "./src/conf.ini"
 
     if "ENV" in os.environ:
         environment = os.environ["ENV"]
-        reporter = ApiReporter
+        if "KENSU_REPORTER" in os.environ:
+            reporter = os.environ["KENSU_REPORTER"]
+        else:
+            reporter = ApiReporter.__name__
     else:
         environment = "Local"
+        reporter = LoggingReporter.__name__
 
     with open('./src/conf.ini.template', "r") as r:
          with open("./src/conf.ini", "w") as w:
             from string import Template
             s = Template(r.read())
             w.write(s.substitute(url=url or '', token=token or ''
+                                , sdk_url=sdk_url, sdk_pat=sdk_pat
                                 , environment=environment
                                 , timestamp=timestamp or ts()
-                                , reporter=reporter.__name__
-                                , file_name=file_name or ''))
+                                , reporter=reporter
+                                , file_name="dodd.log"))
     
     kp = KensuProvider()
     k = kp.initKensu(allow_reinit=True, **kwargs)

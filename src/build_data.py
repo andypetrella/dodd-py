@@ -10,9 +10,7 @@ import kensu.pandas as pd
 from kensu.utils.rule_engine import check_nrows_consistency
 
 def set_up():
-    url = os.environ.get("KENSU_URL", None)
-    token = os.environ.get("KENSU_TOKEN", None)
-    client = dodd(url=url, token=token, timestamp=ts())
+    client = dodd(timestamp=ts())
 
 def copy(source_directory, target_directory):
     copy_v1(source_directory, target_directory)

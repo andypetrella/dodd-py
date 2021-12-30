@@ -131,5 +131,8 @@ dmypy.json
 # Mac OSX
 .DS_Store
 
-# Exclude generated conf.ini
+# Generated conf.ini
 src/conf.ini
+
+# Visual studio code
+.vscode/

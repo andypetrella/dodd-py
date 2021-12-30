@@ -2,6 +2,9 @@
 api_url=$url
 api_token=$token
 
+sdk_url=$sdk_url
+PAT=$sdk_pat
+
 project_names=GitHub Actions
 environment=$environment
 process_name=Build Data - CV
