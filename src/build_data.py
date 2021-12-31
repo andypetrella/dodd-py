@@ -69,9 +69,6 @@ def pipeline_data_prep(data):
     data_final = data_dummy[features]
     return data_final
 
-if __name__ == "__main__":
-    main()
-
 def main():
     target_directory = "output"
 
@@ -90,3 +87,6 @@ def main():
     
     # TODO
     # pipeline with data that doesn't break nrows
+
+if __name__ == "__main__":
+    main()
