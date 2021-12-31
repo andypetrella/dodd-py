@@ -3,6 +3,7 @@ urllib3
 requests
 scikit-learn
 pandas
+GitPython
 
 pytest
 pytest-github-actions-annotate-failures
