@@ -19,7 +19,7 @@ def copy_v1(source_directory, target_directory):
     set_up()
 
     marital = ["divorced", "single", "married", "unknown"]
-    customers_info = pd.read_csv(source_directory + '/customers.csv')
+    customers_info = pd.read_csv(source_directory + '/customers.csv', dtype={'marital': 'category', 'education': 'category'})
 
     check_nrows_consistency()
     referenced = customers_info[customers_info["marital"].isin(marital)]
@@ -30,7 +30,7 @@ def copy_v2(source_directory, target_directory):
     set_up()
     import numpy
     marital = ["divorced", "single", "married", "unknown", numpy.nan]
-    customers_info = pd.read_csv(source_directory + '/customers.csv')
+    customers_info = pd.read_csv(source_directory + '/customers.csv', dtype={'marital': 'category', 'education': 'category'})
 
     check_nrows_consistency()
     referenced = customers_info[customers_info["marital"].isin(marital)]
