@@ -16,6 +16,8 @@ jobs:
     env:
       KENSU_URL: "${{ secrets.KENSU_URL }}"
       KENSU_TOKEN: "${{ secrets.KENSU_TOKEN }}"
+      KENSU_SDK_URL: "${{ secrets.KENSU_SDK_URL }}"
+      KENSU_SDK_PAT: "${{ secrets.KENSU_SDK_PAT }}"
 
     steps:
     - uses: actions/checkout@v2
@@ -50,6 +52,8 @@ jobs:
       ENV: "Staging" 
       KENSU_URL: "${{ secrets.KENSU_URL }}"
       KENSU_TOKEN: "${{ secrets.KENSU_TOKEN }}"
+      KENSU_SDK_URL: "${{ secrets.KENSU_SDK_URL }}"
+      KENSU_SDK_PAT: "${{ secrets.KENSU_SDK_PAT }}"
     steps:
       - name: Deploy
         run: echo I am deploying Dev! 
@@ -78,6 +82,8 @@ jobs:
       ENV: "Production" 
       KENSU_URL: "${{ secrets.KENSU_URL }}"
       KENSU_TOKEN: "${{ secrets.KENSU_TOKEN }}"
+      KENSU_SDK_URL: "${{ secrets.KENSU_SDK_URL }}"
+      KENSU_SDK_PAT: "${{ secrets.KENSU_SDK_PAT }}"
     steps:
       - name: Deploy
         run: echo I am deploying Prod! 
