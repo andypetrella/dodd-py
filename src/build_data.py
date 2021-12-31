@@ -13,7 +13,7 @@ def set_up():
     client = dodd(timestamp=ts())
 
 def copy(source_directory, target_directory):
-    copy_v2(source_directory, target_directory)
+    copy_v1(source_directory, target_directory)
 
 def copy_v1(source_directory, target_directory):
     set_up()
@@ -68,3 +68,25 @@ def pipeline_data_prep(data):
 
     data_final = data_dummy[features]
     return data_final
+
+if __name__ == "__main__":
+    main()
+
+def main():
+    target_directory = "output"
+
+    env = os.environ.get("ENV", "").lower()
+    if env == "production":
+        source_directory = "https://dodd-py-production.s3.eu-west-3.amazonaws.com"
+    else:
+        raise "Production env expected (for the demo)"
+
+    try:
+        os.mkdir(target_directory)
+    except:
+        pass
+
+    copy(source_directory = source_directory, target_directory = target_directory)
+    
+    # TODO
+    # pipeline with data that doesn't break nrows
