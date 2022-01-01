@@ -102,5 +102,5 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Simulating one run
         run: |
-          cd src 
-          python build_data.py
+          pip install -e .
+          python -m dodd.build_data
