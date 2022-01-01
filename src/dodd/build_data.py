@@ -10,7 +10,7 @@ import kensu.pandas as pd
 from kensu.utils.rule_engine import check_nrows_consistency
 
 def set_up():
-    client = client()
+    client()
 
 def copy(source_directory, target_directory):
     copy_v2(source_directory, target_directory)
