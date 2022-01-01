@@ -100,4 +100,5 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Simulating one run
         run: |
-          python src/build_data.py
+          cd src 
+          python build_data.py
