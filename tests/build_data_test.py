@@ -4,7 +4,7 @@ import unittest
 import shutil
 import os
 
-from src.build_data import pipeline, copy
+from dodd.build_data import pipeline, copy
 from kensu.utils.exceptions import NrowsConsistencyError
 
 class TestBuildData(unittest.TestCase):

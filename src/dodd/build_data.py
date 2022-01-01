@@ -3,14 +3,14 @@ urllib3.disable_warnings()
 import os
 import datetime
 
-from src.utils import dodd, ts
+from dodd.utils import client
 
 import kensu.numpy as np
 import kensu.pandas as pd
 from kensu.utils.rule_engine import check_nrows_consistency
 
 def set_up():
-    client = dodd(timestamp=ts())
+    client = client()
 
 def copy(source_directory, target_directory):
     copy_v2(source_directory, target_directory)

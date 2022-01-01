@@ -7,7 +7,7 @@ import logging
 from kensu.utils.kensu_provider import KensuProvider
 from kensu.utils.reporters import ApiReporter, LoggingReporter
 
-def dodd(timestamp, **kwargs):
+def client(timestamp=None, **kwargs):
     url = os.environ.get("KENSU_URL", None)
     token = os.environ.get("KENSU_TOKEN", None)
     sdk_url = os.environ.get("KENSU_SDK_URL", None)
@@ -16,6 +16,9 @@ def dodd(timestamp, **kwargs):
         sdk = f'sdk_url={sdk_url}\nPAT={sdk_pat}'
     else:
         sdk = ''
+        
+    if timestamp is None:
+        timestamp = ts()
 
     if "CONF_FILE" not in os.environ:
         logging.warning("Forcing CONF_FILE var env to 'conf.ini'")
