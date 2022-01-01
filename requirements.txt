@@ -1,4 +1,4 @@
-kensu[pandas]==1.7.0.0.dev215
+kensu[pandas]==1.7.0.0.dev216
 urllib3
 requests
 scikit-learn
