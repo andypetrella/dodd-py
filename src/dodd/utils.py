@@ -22,7 +22,7 @@ def client(timestamp=None, **kwargs):
 
     if "CONF_FILE" not in os.environ:
         logging.warning("Forcing CONF_FILE var env to 'conf.ini'")
-        os.environ["CONF_FILE"] = "./src/conf.ini"
+        os.environ["CONF_FILE"] = "./src/dodd/conf.ini"
 
     if "ENV" in os.environ:
         environment = os.environ["ENV"]
@@ -34,8 +34,8 @@ def client(timestamp=None, **kwargs):
         environment = "Local"
         reporter = LoggingReporter.__name__
 
-    with open('./src/conf.ini.template', "r") as r:
-         with open("./src/conf.ini", "w") as w:
+    with open('./src/dodd/conf.ini.template', "r") as r:
+         with open("./src/dodd/conf.ini", "w") as w:
             from string import Template
             s = Template(r.read())
             w.write(s.substitute(url=url or '', token=token or ''
