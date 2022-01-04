@@ -13,7 +13,7 @@ def set_up():
     client()
 
 def copy(source_directory, target_directory):
-    copy_v1(source_directory, target_directory)
+    copy_v2(source_directory, target_directory)
 
 def copy_v1(source_directory, target_directory):
     set_up()
