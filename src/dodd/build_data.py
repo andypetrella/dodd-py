@@ -13,7 +13,7 @@ def set_up():
     client()
 
 def copy(source_directory, target_directory):
-    copy_v2(source_directory, target_directory)
+    copy_v1(source_directory, target_directory)
 
 def copy_v1(source_directory, target_directory):
     set_up()
@@ -29,7 +29,7 @@ def copy_v1(source_directory, target_directory):
 def copy_v2(source_directory, target_directory):
     set_up()
     import numpy
-    marital = ["divorced", "single", "married", "unknown", numpy.nan]
+    marital = ["divorced", "single", "married", "unknown", "widowed"]
     customers_info = pd.read_csv(source_directory + '/customers.csv', dtype={'marital': 'category', 'education': 'category'})
 
     check_nrows_consistency()

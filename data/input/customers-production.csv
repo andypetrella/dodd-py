@@ -8202,5 +8202,5 @@ age,job,marital,education,default,housing,loan,id
 33,self-employed,married,university.degree,no,yes,yes,17800
 75,retired,divorced,basic.4y,no,no,no,40906
 51,admin.,single,basic.6y,no,no,no,28362
-150,blue-collar,,university.degree,no,yes,no,1
+150,blue-collar,widowed,university.degree,no,yes,no,1
 87,admin.,single,basic.6y,no,no,no,28363
