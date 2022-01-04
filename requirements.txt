@@ -1,0 +1,9 @@
+kensu[pandas]==1.7.0.0.dev216
+urllib3
+requests
+scikit-learn
+pandas
+GitPython
+
+pytest
+pytest-github-actions-annotate-failures
